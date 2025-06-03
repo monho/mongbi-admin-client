@@ -182,7 +182,7 @@ const DurationButton = styled.button`
   cursor: pointer;
   font-size: 14px;
 `;
-const NoticeWrite = ({ onBack }) => {
+const ChallengeAdminWrite = ({ onBack }) => {
     const navigate = useNavigate();
     const today = new Date().toISOString().split('T')[0]; // 오늘 날짜를 ISO 형식(YYYY-MM-DD)으로 변환
     const [PRODUCT_DETAILS, setContent] = useState("");
@@ -228,18 +228,11 @@ const NoticeWrite = ({ onBack }) => {
     return (
         <CsWarp>
             <PageHeader>
-                <HeaderText className='text-lg'>공지사항 등록</HeaderText>
+                <HeaderText className='text-lg'>챌린지 등록</HeaderText>
             </PageHeader>
             <SubHead>
                 <BtnArea>
-                    <Btn className='text-sm'>
-                        미리보기
-                        <img src={process.env.PUBLIC_URL + '/assets/icon/freeview.svg'}
-                            alt="Upload or Selected"
-                        />
-                    </Btn>
                     <WriteBtn
-
                         className='text-sm'>
                         등록하기
                         <img src={process.env.PUBLIC_URL + '/assets/icon/write_white.svg'}
@@ -259,21 +252,20 @@ const NoticeWrite = ({ onBack }) => {
                 <FormContainer>
                     <FormRow>
                         <LabelArea>
-                            <Label className="text-sm">제목</Label>
+                            <Label className="text-sm">챌린지 제목</Label>
                         </LabelArea>
                         <InputContainer>
                             <Input
                                 value={PRODUCT_EN}
                                 type="text"
                                 onChange={(e) => setProductTitle(e.target.value)}
-                                placeholder="제목을 입력하세요."
+                                placeholder="챌린지 제목을 입력하세요."
                             />
                         </InputContainer>
                     </FormRow>
-
                     <FormRow>
                         <LabelArea>
-                            <Label className="text-sm">게시 여부</Label>
+                            <Label className="text-sm">챌린지 게시 여부</Label>
                         </LabelArea>
                         <InputContainer>
                             <RadioArea>
@@ -299,83 +291,22 @@ const NoticeWrite = ({ onBack }) => {
 
                         </InputContainer>
                     </FormRow>
-
                     <FormRow>
                         <LabelArea>
-                            <Label className="text-sm">게시물 상태</Label>
+                            <Label className="text-sm">챌린지 타입</Label>
                         </LabelArea>
                         <InputContainer>
                             <InputBox>
-                                <option>일반</option>
-                                <option>이벤트</option>
-                                <option>업데이트</option>
-                                <option>긴급</option>
+                                <option>필사형 챌린자</option>
+                                <option>행동형 챌린지</option>
+                                {/* <option>고객</option> */}
                             </InputBox>
                         </InputContainer>
                     </FormRow>
+                    
                     <FormRow>
                         <LabelArea>
-                            <Label className="text-sm">게시 구분</Label>
-                        </LabelArea>
-                        <InputContainer>
-                            <InputBox>
-                                <option>전체</option>
-                                <option>파트너</option>
-                                <option>고객</option>
-                            </InputBox>
-                        </InputContainer>
-                    </FormRow>
-                    <FormRow>
-                        <LabelArea>
-                            <Label className="text-sm">게시 기간</Label>
-                        </LabelArea>
-                        <InputContainer>
-                            <InputBox
-                                value={POST_PERIOD}
-                                onChange={handlePostPeriodChange}
-                            >
-                                <option value="비활성화">비활성화</option>
-                                <option value="활성화">활성화</option>
-                            </InputBox>
-                            {POST_PERIOD === "활성화" && (
-
-                                <DateInputContainer>
-                                    <div>
-                                        <DurationButtons>
-                                            {[3, 5, 7, 15, 30].map((days) => (
-                                                <DurationButton
-                                                    key={days}
-                                                    active={selectedDuration === days}
-                                                    onClick={() => handleDurationClick(days)}
-                                                >
-                                                    {days}일
-                                                </DurationButton>
-                                            ))}
-                                        </DurationButtons>
-                                    </div>
-                                    <div>
-                                        <DateInput
-                                            type="date"
-                                            
-                                            value={startDate}
-                                            onChange={(e) => setStartDate(e.target.value)}
-                                        />
-                                        <span>~</span>
-                                        <DateInput
-                                            type="date"
-                                            value={endDate}
-                                            onChange={(e) => setEndDate(e.target.value)}
-                                        />
-                                    </div>
-
-
-                                </DateInputContainer>
-                            )}
-                        </InputContainer>
-                    </FormRow>
-                    <FormRow>
-                        <LabelArea>
-                            <Label className="text-sm">내용</Label>
+                            <Label className="text-sm">챌린지 내용</Label>
                         </LabelArea>
                         <InputContainer style={{ height: '450px' }}>
                             <ReactQuill
@@ -386,11 +317,11 @@ const NoticeWrite = ({ onBack }) => {
                             />
                         </InputContainer>
                     </FormRow>
-                    
+
                 </FormContainer>
             </PageMain>
         </CsWarp>
     );
 };
 
-export default NoticeWrite;
+export default ChallengeAdminWrite;

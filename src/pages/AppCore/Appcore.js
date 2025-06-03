@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import ChallengeAdmin from './ChallengeAdmin';
-import Faq from './Faq';
-import Review from './Review';
+import FcmSendPage from './PushMessageSend';
+import FcmMessageLog from './PushMessageLog';
 
-const ChallengeWarp = styled.div`
+const AppcoreWarp = styled.div`
     display: flex;
 `;
 
@@ -49,7 +48,7 @@ const ChallengeContent = styled.div`
     flex: 1; 
 `;
 
-const Challenge = () => {
+const Appcore = () => {
     const [activeMenu, setActiveMenu] = useState(0);
 
     const handleMenuClick = (menuIndex) => {
@@ -60,22 +59,20 @@ const Challenge = () => {
     const renderContent = () => {
         switch (activeMenu) {
             case 0:
-                return <ChallengeAdmin />;
-            case 1:
-                return <Faq />;
+                return <FcmMessageLog />;
             default:
-                return <Review />;
+                return <FcmMessageLog />;
         }
     };
 
     return (
-        <ChallengeWarp>
+        <AppcoreWarp>
             <SideMenu>
                 <MenuHeader>
-                    <MenuHeaderText className="text-md">챌린지관리</MenuHeaderText>
+                    <MenuHeaderText className="text-md">앱 관리</MenuHeaderText>
                 </MenuHeader>
                 <Menu>
-                    {['- 챌린지 관리'].map(
+                    {['- 푸쉬 알림 발송' , '- 에러 실시간 추적'].map(
                         (menu, index) => (
                             <MenuItem
                                 key={index}
@@ -90,8 +87,8 @@ const Challenge = () => {
                 </Menu>
             </SideMenu>
             <ChallengeContent>{renderContent()}</ChallengeContent>
-        </ChallengeWarp>
+        </AppcoreWarp>
     );
 };
 
-export default Challenge;
+export default Appcore;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import UserList from './UserList';
-import UserProgramAuth from './UserProgramAuth';
+import UserTerms from './UserTerms';
 
 const UserWarp = styled.div`
     display: flex;
@@ -61,7 +61,7 @@ const User = () => {
             case 0:
                 return <UserList />;
             case 1:
-                return <UserProgramAuth />;
+                return <UserTerms />;
             default:
                 return <div>페이지를 선택하세요</div>;
         }
@@ -74,7 +74,7 @@ const User = () => {
                     <MenuHeaderText className="text-md">회원관리</MenuHeaderText>
                 </MenuHeader>
                 <Menu>
-                    {['- 회원목록'].map(
+                    {['- 회원목록','- 약관관리'].map(
                         (menu, index) => (
                             <MenuItem
                                 key={index}

@@ -23,7 +23,7 @@ const PageHeader = styled.div`
   padding: 14px 35px 14px 22px;
   align-items: center;
   justify-content: space-between;
-`;
+`;  
 const SubHead = styled.div`
   height: 132px;
   display: flex;

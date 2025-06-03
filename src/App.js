@@ -7,7 +7,7 @@ import Statistics from './pages/Statistics/Statistics';
 import Challenge  from './pages/Challenge/Challenge';
 import VisibilityManager from './pages/VisibilityManager/VisibilityManager';
 import Login from './pages/Login/Login';
-import axios from 'axios';
+import Appcore from './pages/AppCore/Appcore';
 import { useEffect } from 'react';
 
 function App() {
@@ -28,9 +28,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          {/* Login에는 Layout을 적용하지 않음 */}
           <Route path="/" element={<Login />} />
-          {/* 나머지 라우트에는 Layout 적용 */}
           <Route
             path="*"
             element={
@@ -40,7 +38,7 @@ function App() {
                   <Route path="/users" element={<User />} />
                   <Route path="/challenge" element={<Challenge />} />
                   {/* <Route path="/any" element={<Statistics />} /> */}
-                  <Route path="/show" element={<VisibilityManager />} />
+                  <Route path="/appcore" element={<Appcore />} />
                 </Routes>
               </Layout>
             }

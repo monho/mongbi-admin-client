@@ -77,11 +77,12 @@ const Sidebar = () => {
                         <img src={getIconSrc("/any", "any")} alt="Any" />
                     </SidbarMenuItem>
                 </Link>
-                <Link to='/settings'>
-                    <SidbarMenuItem active={activeMenu === "/settings"} onClick={() => handleMenuClick("/settings")}>
-                        <img src={getIconSrc("/settings", "setting")} alt="Settings" />
+                <Link to='/appcore'>
+                    <SidbarMenuItem active={activeMenu === "/appcore"} onClick={() => handleMenuClick("/appcore")}>
+                        <img src={getIconSrc("/appcore", "setting")} alt="Settings" />
                     </SidbarMenuItem>
                 </Link>
+
             </SidbarMenu>
         </SiderbarArea>
     );

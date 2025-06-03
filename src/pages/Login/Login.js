@@ -137,7 +137,6 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
         try {
            window.location.href = "/dashboard"; // 대시보드 페이지로 이동
         } catch (error) {
@@ -145,7 +144,6 @@ const Login = () => {
             setErrorMessage("아이디 또는 비밀번호가 잘못되었습니다."); // 오류 메시지 표시
         }
     };
-
     return (
         <div>
             <LoginWrapper>

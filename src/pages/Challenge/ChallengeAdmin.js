@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import axios from 'axios';
 import SearchForm from '../../components/SearchForm';
 
-import NoticeWrite from './NoticeWrite';
+import ChallengeAdminWrite from './ChallengeAdminWrite';
 import checked from '../../assets/images/checked.svg'
-const ChallengeAdmineWarp = styled.div`
+const ChallengeAdminWarp = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -143,7 +143,7 @@ const StyledTable = styled.table`
   }
 `;
 
-const ChallengeAdmine = () => {
+const ChallengeAdmin = () => {
 
     const handleBack = (shouldReload) => {
         setIsRegisterMode(false);
@@ -157,9 +157,9 @@ const ChallengeAdmine = () => {
     const [isEditMode, setIsEditMode] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
     return (
-        <ChallengeAdmineWarp>
+        <ChallengeAdminWarp>
             {isRegisterMode ? (
-                <ChallengeAdmineWrite onBack={handleBack} />
+                <ChallengeAdminWrite onBack={handleBack} />
             )  : (
                 <>
                     <PageHeader>
@@ -222,8 +222,8 @@ const ChallengeAdmine = () => {
                     </PageMain>
                 </>
             )}
-        </ChallengeAdmineWarp>
+        </ChallengeAdminWarp>
     );
 };
 
-export default ChallengeAdmine;
+export default ChallengeAdmin;
